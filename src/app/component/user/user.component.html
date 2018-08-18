@@ -1,0 +1,52 @@
+<h1>My Angular 4</h1>
+<ul>
+  <li>name:{{name}}</li>
+  <li>age:{{age}}</li>
+  <li>email:{{email}}</li>
+  <li>address:{{address.street}} {{address.city}}</li>
+</ul>
+
+<h2>edit profile
+  <button (click)=ishow()>edit profile</button>
+</h2>
+<div *ngIf="editshow == true">
+  <form>
+    <div>
+      <label>
+        <b>neme</b>
+      </label>
+      <input type="text" [(ngModel)]="name" name="name">
+    </div>
+    <div>
+      <label>
+        <b>age</b>
+      </label>
+      <input type="text" [(ngModel)]="age" name="age">
+    </div>
+    <div>
+      <label>
+        <b>email</b>
+      </label>
+      <input type="text" [(ngModel)]="email" name="email">
+    </div>
+  </form>
+  <div>add skill</div>
+  <form (submit)="addskill(skill.value)">
+    <label>skill</label>
+    <input type="text" #skill placeholder="ใส่ความสามารถ">
+
+  </form>
+</div>
+<ul>
+  <li *ngFor="let skill of skills; let i = index ;">{{i+1}} {{skill}}
+    <button (click)="del(i)">ลบ</button>
+  </li>
+</ul>
+
+
+<h2>Todo List</h2>
+<ul *ngFor="let t of todoList ;let i = index">
+  <li *ngIf="i >= min && i < max"> {{t.id}} {{t.title}} </li>
+</ul>
+<button type="button" class="btn btn-primary" (click)="Backpage(page)" *ngIf="min > 0">Back</button>
+<button type="button" class="btn btn-primary" (click)="Nextpage(page)" *ngIf="max < Total">Next {{Total}} </button>

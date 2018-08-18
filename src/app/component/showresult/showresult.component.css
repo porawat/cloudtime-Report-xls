@@ -1,0 +1,87 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+ 
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+ 
+.fade.in {
+    opacity: 1;
+}
+ 
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 1px;
+}
+ 
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+ 
+.modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+}
+ 
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 800px;
+        margin: 10px auto;
+    }
+}
+@font-face {
+    font-family: 'DINBold';
+    src: url('http://klout.com/fonts/din-bold-webfont.eot');
+    src: url('http://klout.com/fonts/din-bold-webfont.eot?iefix') format('eot'),
+         /* url('http://klout.com/fonts/din-bold-webfont.ttf') format('truetype'), */
+         url('http://klout.com/fonts/din-bold-webfont.svg#webfontP8nfTlwg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.k {
+    background-color: #e44803;
+    width: 750px;
+    height: 160px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.k:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-bottom: 28px solid transparent;
+    border-right: 58px solid #e44803;
+    position: absolute;
+    right: 0;
+}
+
+.k-value {
+    font-family: DINBold, Arial, sans-serif;
+    color: #fff;
+    font-size: 150px;
+    text-align: center;
+    line-height: 150px;
+}

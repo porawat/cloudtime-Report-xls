@@ -1,0 +1,36 @@
+<h3 style="text-align: center">มาทำข้อสอบกัน</h3>
+<form (ngSubmit)="ark((ChoiceList))">
+  <div class="container" *ngFor="let Choice of ChoiceList;let i = index">
+    <div class="row">
+      <!-- {{i}} -->
+      <div class="col">
+        <label>{{Choice.Article_id}} . {{Choice.Article_title}}</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        A
+        <input class="form-check-input" type="radio" name="Choice.{{Choice.Article_id}}" [(ngModel)]="Choice.ark" [value]="1"> {{Choice.Choice1}}
+      </div>
+      <div class="col">
+        B
+        <input class="form-check-input" type="radio" name="Choice.{{Choice.Article_id}}" [(ngModel)]="Choice.ark" [value]="2"> {{Choice.Choice2}}
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+        C
+        <input class="form-check-input" type="radio" name="Choice.{{Choice.Article_id}}" [(ngModel)]="Choice.ark" [value]="3"> {{Choice.Choice3}}
+      </div>
+      <div class="col">
+        D
+        <input class="form-check-input" type="radio" name="Choice.{{Choice.Article_id}}" [(ngModel)]="Choice.ark" [value]="4"> {{Choice.Choice4}}
+      </div>
+
+    </div>
+    <hr style="width: 100%; color: rgb(212, 11, 11); height: 1px; background-color:rgb(10, 39, 201);" />
+  </div>
+  <button class="btn btn-success btn-block" type="Submit">ส่งคำตอบ</button>
+  <br>
+</form>

@@ -1,0 +1,68 @@
+
+<script src="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.tpls.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.css">
+<h3 style="text-align: center">เลือกไฟล์ ที่จะ import</h3>
+
+   
+        <table class="w3-table" style="width: 50%;margin: 0 auto;text-align: center">
+            <tr class="centerall">
+              <th width="50%" class="centerall">เลือกวัน</th>
+              <th width="50%" class="centerall">เลือกไฟล์</th>
+              
+            </tr>
+            <tr>
+              <td class="centerall"><material-datepicker [(date)]="YYYY-MM-DD" [(ngModel)]="form.myDate" name="myDate"></material-datepicker></td>
+              <td class="centerall"> <span class="btn btn-block btn-primary  btn-file">
+                  Browse <input type="file" (change)="onFileChange($event)" name="file" accept=".xls,.xlsx" >
+              </span>
+            </td>            
+            </tr> 
+               
+          </table>
+          <div class="form-group form-group-lg" style="margin: 0 auto">
+              <br>
+              <table class="table" style="width: 50%;margin: 0 auto;text-align: center" >
+                  <tr>
+                      <th style="text-align: center">
+                          <button (click)="datatodb()" class="btn btn-block btn-success" *ngIf="data">บันทึกลงฐานข้อมูล</button>
+                        
+                         <!-- <button (click)="savefile()" class="btn btn-success" *ngIf="datarow">export</button> -->
+                      </th>
+                    
+                  </tr> 
+           
+          </table> 
+<div class="form-group form-group-lg" style="width: 60%;margin: 0 auto;text-align: center">
+    <table class="table" *ngIf="datarow">
+        <tr>
+            <th style="text-align: center">
+                <span> บันทึกแล้ว {{datarow}} รายการ </span>
+            </th>
+          
+        </tr> 
+</table> 
+<br><br>
+<h3 class="centerall">Export ข้อมูล</h3>
+        
+<table class="w3-table" style="width: 80%;margin: 0 auto;text-align: center" >
+    <tr>
+      <th width="50%" class="centerall">เลือกวันเริ่มต้น</th>
+      <th width="50%" class="centerall">เลือกวันสิ้นสุด</th>
+      
+    </tr>
+    <tr>
+      <td class="centerall">  
+        <material-datepicker [(date)]="YYYY-MM-DD" [(ngModel)]="exform.startDate" name="startDate" (click)="onDate($event)"></material-datepicker></td>
+      <td class="centerall">
+        <material-datepicker [(date)]="YYYY-MM-DD" [(ngModel)]="exform.stopDate" name="stopDate" (click)="onDate($event)"></material-datepicker></td>            
+    </tr> 
+       
+  </table>
+  <br>
+  <table class="w3-table" style="width: 80%;" class="centerall">
+      <tr>
+        <th width="50%" class="centerall">
+            <button class="btn btn-block btn-primary" (click)="exportxls()" *ngIf="showBXLS===true">Export XLS</button>
+        </th>
+      </tr>          
+    </table>

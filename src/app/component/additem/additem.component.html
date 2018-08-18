@@ -1,0 +1,41 @@
+<p>
+  New Items form
+</p>
+
+
+<form [formGroup]="myforms" (submit)="additems()">
+  <div class="form-group">
+   
+    <input type="text" formControlName="ID" class="form-control" placeholder="ID">
+  </div>
+
+  <div class="form-group">
+    
+    <input type="text" formControlName="Name" class="form-control" placeholder="ชื่อ">
+  </div>
+
+  <div class="form-group">
+   
+    <input type="number" formControlName="Price" class="form-control" placeholder="ราคา">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+    <button type="button" class="btn btn-success btn-block" (click)="tempsave()">temp</button>
+  </div>
+</form>
+<div class="table-responsive"> 
+  <table>
+    <tr class="success">
+      <th>ID</th>
+      <th>Items</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let item of itemsList">
+      <td>{{item.ID}}</td>
+      <td>{{item.Name}}</td>
+      <td>{{item.Price}}</td>
+    </tr>
+    
+  </table>
+  <button type="button" class="btn btn-success btn-block" (click)="allsave()">save all</button>
+  </div>
